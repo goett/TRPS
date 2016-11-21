@@ -1,0 +1,14 @@
+#beta  gamma  lambda mu
+dyn 0.472 -1.17 .415 .168
+#scattering and decay constants are not used for ZnSe, leave Ge defaults from 4.10
+scat 3.67e-41 
+decay 1.6456e-54 
+LDOS 0.1
+STDOS 0.443
+FTDOS 0.443
+VDir ZnSeLVec.dat  L  161 321
+VDir ZnSeSTVec.dat ST 161 321
+VDir ZnSeFTVec.dat FT 161 321
+VG ZnSeL.dat  L 161 321
+VG ZnSeST.dat ST 161 321
+VG ZnSeFT.dat FT 161 321

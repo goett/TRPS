@@ -1,0 +1,2 @@
+- dynamic constants derived from Ledbetter et. al. , J.Appl. Phys. 96,11 (2004) data using relations in Tamura Physical Review B, 31(4): 2595-2598 1985
+- anharmonic decay calculated from Herring's theory: doi:10.1016/S0921-4526(98)01481-1

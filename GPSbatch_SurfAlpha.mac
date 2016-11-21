@@ -1,0 +1,20 @@
+# generate Po210 alphas at (00-1) face
+/gps/particle alpha
+
+/gps/centre 0 0 0 mm
+/gps/pos/type Surface
+/gps/pos/shape Para
+/gps/pos/halfx  12 mm 
+/gps/pos/halfy  12 mm 
+/gps/pos/halfz  12 mm 
+
+/gps/ang/type cos
+/gps/ang/mintheta 90 deg
+/gps/ang/maxtheta 180 deg
+/gps/ang/minphi 0 deg
+/gps/ang/maxphi 180 deg
+
+/gps/ene/type Mono
+/gps/ene/mono 5.4 MeV
+
+/run/beamOn 10

@@ -1,0 +1,16 @@
+# Clear the source and tell GPS to make multiple vertices
+/gps/source/clear
+# Create the first particle
+/gps/source/add 1
+/gps/particle e-
+/gps/energy 1263.505 keV 
+/gps/ang/type iso
+
+#vertex settings
+/gps/pos/type Volume
+/gps/pos/shape Para
+/gps/pos/halfx 11.5 mm
+/gps/pos/halfy 11.5 mm
+/gps/pos/halfz 11.5 mm
+
+/run/beamOn 10000

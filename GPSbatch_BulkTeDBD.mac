@@ -1,0 +1,24 @@
+# Clear the source and tell GPS to make multiple vertices
+/gps/source/clear
+/gps/source/multiplevertex true
+# Create the first particle
+/gps/source/add 1
+/gps/particle e-
+/gps/energy 1019.5 keV 
+/gps/number 2
+/gps/direction 0 1 1
+
+#vertex settings
+/gps/pos/type Volume
+/gps/pos/shape Para
+/gps/pos/halfx 12 mm
+/gps/pos/halfy 12 mm
+/gps/pos/halfz 12 mm
+
+# Create the second particle (position is ignored)
+#/gps/source/add 2
+#/gps/particle e-
+#/gps/energy 1019.5 keV
+#/gps/direction 0 -1 -1
+
+/run/beamOn 3
