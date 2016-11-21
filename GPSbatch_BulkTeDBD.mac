@@ -1,4 +1,5 @@
 # Clear the source and tell GPS to make multiple vertices
+/TRPS/generator/ select GPS
 /gps/source/clear
 /gps/source/multiplevertex true
 # Create the first particle

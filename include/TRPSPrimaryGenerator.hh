@@ -1,7 +1,7 @@
-#ifndef TRPSPrimaryGeneratorAction_h
-#define TRPSPrimaryGeneratorAction_h 1
+#ifndef TRPSPrimaryGenerator_h
+#define TRPSPrimaryGenerator_h 1
 
-#include "G4VUserPrimaryGeneratorAction.hh"
+#include "G4VPrimaryGenerator.hh"
 #include "globals.hh"
 
 #include "G4PhononLong.hh"
@@ -12,14 +12,14 @@
 class G4ParticleGun;
 class G4Event;
 
-class TRPSPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
+class TRPSPrimaryGenerator : public G4VPrimaryGenerator
 {
 public:
-  TRPSPrimaryGeneratorAction();    
-  virtual ~TRPSPrimaryGeneratorAction();
+  TRPSPrimaryGenerator();    
+  virtual ~TRPSPrimaryGenerator();
 
   public:
-    virtual void GeneratePrimaries(G4Event*);
+    virtual void GeneratePrimaryVertex(G4Event*);
 
 protected:
   //generate random polarization from density of states

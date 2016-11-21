@@ -16,8 +16,6 @@
 //#include "DetectorConstruction.hh"
 #include "ZnSeDetectorConstruction.hh"
 #include "TRPSPhysicsList.hh"
-#include "DBDPrimaryGeneratorAction.hh"
-#include "TRPSPrimaryGeneratorAction.hh"
 #include "PrimaryGeneratorAction.hh"
 #include "RunAction.hh"
 #include "EventAction.hh"
@@ -112,18 +110,8 @@ G4cout << "The Random seed has been set by the system time as: " << seed << G4en
  runManager->SetUserInitialization(physics);
     
  // Set user action classes
-
- // For DBD uncomment following two lines:
- //G4VUserPrimaryGeneratorAction* gen_action = new DBDPrimaryGeneratorAction();
- //runManager->SetUserAction(gen_action);
- 
- // For GPS uncomment following two lines:
  G4VUserPrimaryGeneratorAction* gen_action = new PrimaryGeneratorAction();
  runManager->SetUserAction(gen_action);
-
- // For hurley validation, uncomment following two lines:
- //G4VUserPrimaryGeneratorAction* gen_action = new TRPSPrimaryGeneratorAction();
- //runManager->SetUserAction(gen_action);
  
  RunAction* run_action = new RunAction;
  runManager->SetUserAction(run_action);

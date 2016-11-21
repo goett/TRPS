@@ -1,7 +1,6 @@
-#include "DBDPrimaryGeneratorAction.hh"
+#include "DBDPrimaryGenerator.hh"
 
 #include "Randomize.hh"
-
 #include "G4Event.hh"
 #include "G4ParticleGun.hh"
 #include "G4ParticleTable.hh"
@@ -10,20 +9,20 @@
 #include "G4RandomDirection.hh"
 #include "Randomize.hh"
 
-DBDPrimaryGeneratorAction::DBDPrimaryGeneratorAction()
+DBDPrimaryGenerator::DBDPrimaryGenerator()
 {
   fParticleGun = new G4ParticleGun();
-  
+
   //default kinematic
-  // handled in GeneratePrimaries
+  // handled in GeneratePrimaryVertex
 }
 
-DBDPrimaryGeneratorAction::~DBDPrimaryGeneratorAction()
+DBDPrimaryGenerator::~DBDPrimaryGenerator()
 {
   delete fParticleGun;
 }
 
-void DBDPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
+void DBDPrimaryGenerator::GeneratePrimaryVertex(G4Event* anEvent)
 {
   G4ParticleDefinition* particle;
 

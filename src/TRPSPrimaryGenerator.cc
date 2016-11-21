@@ -1,4 +1,4 @@
-#include "TRPSPrimaryGeneratorAction.hh"
+#include "TRPSPrimaryGenerator.hh"
 
 #include "Randomize.hh"
 
@@ -16,7 +16,8 @@
 #include "G4LatticePhysical.hh"
 #include "G4TransportationManager.hh"
 
-TRPSPrimaryGeneratorAction::TRPSPrimaryGeneratorAction()
+TRPSPrimaryGenerator::TRPSPrimaryGenerator()
+: G4VPrimaryGenerator()
 {
   fParticleGun = new G4ParticleGun();
   
@@ -24,12 +25,12 @@ TRPSPrimaryGeneratorAction::TRPSPrimaryGeneratorAction()
   // handled in GeneratePrimaries
 }
 
-TRPSPrimaryGeneratorAction::~TRPSPrimaryGeneratorAction()
+TRPSPrimaryGenerator::~TRPSPrimaryGenerator()
 {
   delete fParticleGun;
 }
 
-void TRPSPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
+void TRPSPrimaryGenerator::GeneratePrimaryVertex(G4Event* anEvent)
 {
 
   //fetch physical lattice for crystal under study
@@ -74,7 +75,7 @@ void TRPSPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 
 }
 
-G4int TRPSPrimaryGeneratorAction::ChoosePolarization(G4double Ldos, G4double STdos,
+G4int TRPSPrimaryGenerator::ChoosePolarization(G4double Ldos, G4double STdos,
                                                            G4double FTdos) const {
         G4double norm = Ldos + STdos + FTdos;
         G4double cProbST = STdos/norm;

@@ -19,8 +19,7 @@
 
 #include "TESSensitivity.hh"
 #include "G4LatticePhysical.hh"
-//#include "G4LatticeLogical.hh"
-#include "TRPSLatticeLogical.hh"
+#include "G4LatticeLogical.hh"
 #include "G4LatticeManager.hh"
 
 #include "G4UserLimits.hh"
@@ -95,7 +94,7 @@ void DetectorConstruction::SetupGeometry()
 
   // G4LatticeManager gives physics processes access to lattices by volume
   G4LatticeManager* LM = G4LatticeManager::GetLatticeManager();
-  TRPSLatticeLogical* TeO2Logical = dynamic_cast<TRPSLatticeLogical*>(LM->LoadLattice(fTeO2, "Te"));
+  G4LatticeLogical* TeO2Logical = LM->LoadLattice(fTeO2, "Te");
 
   // G4LatticePhysical assigns G4LatticeLogical a physical orientation
   // The lattice here is rotated pi/4 radians about the z axis
