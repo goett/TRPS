@@ -1,5 +1,5 @@
-#ifndef DetectorConstruction_h
-#define DetectorConstruction_h 1
+#ifndef TeO2DetectorConstruction_h
+#define TeO2DetectorConstruction_h 1
 
 #include "G4VUserDetectorConstruction.hh"
 #include "globals.hh"
@@ -7,10 +7,10 @@
 class G4Material;
 class G4VPhysicalVolume;
 
-class DetectorConstruction : public G4VUserDetectorConstruction {
+class TeO2DetectorConstruction : public G4VUserDetectorConstruction {
 public:
-  DetectorConstruction();
-  virtual ~DetectorConstruction();
+  TeO2DetectorConstruction();
+  virtual ~TeO2DetectorConstruction();
   
 public:
   virtual G4VPhysicalVolume* Construct();

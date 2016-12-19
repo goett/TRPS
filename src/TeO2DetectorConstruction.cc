@@ -1,4 +1,4 @@
-#include "DetectorConstruction.hh"
+#include "TeO2DetectorConstruction.hh"
 
 #include "G4Material.hh"
 #include "G4NistManager.hh"
@@ -29,7 +29,7 @@
 #include <vector>
 
 
-DetectorConstruction::DetectorConstruction()
+TeO2DetectorConstruction::TeO2DetectorConstruction()
  : fConstructed(false), fIfField(true) {
   fLiquidHelium = NULL;
   fTellurium = NULL;
@@ -40,9 +40,9 @@ DetectorConstruction::DetectorConstruction()
   fWorldPhys = NULL;
 }
 
-DetectorConstruction::~DetectorConstruction() {;}
+TeO2DetectorConstruction::~TeO2DetectorConstruction() {;}
 
-G4VPhysicalVolume* DetectorConstruction::Construct()
+G4VPhysicalVolume* TeO2DetectorConstruction::Construct()
 {
   if(!fConstructed)
   { 
@@ -53,7 +53,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   return fWorldPhys;
 }
 
-void DetectorConstruction::DefineMaterials()
+void TeO2DetectorConstruction::DefineMaterials()
 { 
   G4NistManager* nistManager = G4NistManager::Instance();
 
@@ -74,7 +74,7 @@ void DetectorConstruction::DefineMaterials()
   fTungsten = nistManager->FindOrBuildMaterial("G4_W");
 }
 
-void DetectorConstruction::SetupGeometry()
+void TeO2DetectorConstruction::SetupGeometry()
 {
   // World
   G4VSolid* worldSolid = new G4Box("World",16.*cm,16.*cm,16.*cm);

@@ -31,7 +31,7 @@ i = 0
 
 for tt in t:
     for pp in p:
-        Vp,pol = dyn.CalcPhaseVelocityPol(tt,pp,C,rho);
+        Vp,pol = dyn.CalcGroupVelocityPol(tt,pp,C,rho);
 	L[i] = Vp[0];
 	FT[i] = Vp[1];
 	ST[i] = Vp[2];

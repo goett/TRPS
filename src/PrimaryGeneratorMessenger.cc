@@ -14,8 +14,6 @@
 #include "G4GeneralParticleSource.hh"
 #include "DBDPrimaryGenerator.hh"
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 PrimaryGeneratorMessenger::PrimaryGeneratorMessenger(PrimaryGeneratorAction* generator)
 : fPrimaryGenerator(generator)
 {
@@ -38,15 +36,12 @@ PrimaryGeneratorMessenger::PrimaryGeneratorMessenger(PrimaryGeneratorAction* gen
 
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 PrimaryGeneratorMessenger::~PrimaryGeneratorMessenger()
 {
   delete genDir;
   delete fSelectCmd;
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void PrimaryGeneratorMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
 {
@@ -68,4 +63,3 @@ void PrimaryGeneratorMessenger::SetNewValue(G4UIcommand* command,G4String newVal
 
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

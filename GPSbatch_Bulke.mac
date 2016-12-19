@@ -1,5 +1,5 @@
 # Clear the source and tell GPS to make multiple vertices
-/TRPS/generator/ select GPS
+/TRPS/generator/select GPS
 /gps/source/clear
 # Create the first particle
 /gps/source/add 1

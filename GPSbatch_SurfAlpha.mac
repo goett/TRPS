@@ -1,5 +1,5 @@
 # generate Po210 alphas at (00-1) face
-/TRPS/generator/ select GPS
+/TRPS/generator/select GPS
 /gps/particle alpha
 
 /gps/centre 0 0 0 mm

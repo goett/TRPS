@@ -14,6 +14,7 @@
 #endif
 
 //#include "DetectorConstruction.hh"
+#include "TeO2DetectorConstruction.hh"
 #include "ZnSeDetectorConstruction.hh"
 #include "TRPSPhysicsList.hh"
 #include "PrimaryGeneratorAction.hh"
@@ -102,7 +103,8 @@ G4cout << "The Random seed has been set by the system time as: " << seed << G4en
 
  // Set mandatory initialization classes
  //
- ZnSeDetectorConstruction* detector = new ZnSeDetectorConstruction();
+ TeO2DetectorConstruction* detector = new TeO2DetectorConstruction();
+ //ZnSeDetectorConstruction* detector = new ZnSeDetectorConstruction();
  runManager->SetUserInitialization(detector);
  //
  G4VUserPhysicsList* physics = new TRPSPhysicsList();
