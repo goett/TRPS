@@ -1,0 +1,13 @@
+# generate Po210 alphas throughout the bulk of the crystal
+/TRPS/generator/select GPS
+/gps/particle alpha
+
+/gps/centre 11.05 0 0 mm
+/gps/pos/type Point
+
+/gps/ang/type iso
+
+/gps/ene/type Mono
+/gps/ene/mono 5.4 MeV
+
+/run/beamOn 100

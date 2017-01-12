@@ -1,0 +1,14 @@
+#beta  gamma  lambda mu
+dyn 0.472 -1.17 .415 .168
+#scattering and decay constants are not used for TeO2, leave Ge defaults from 4.10
+scat 3.67e-41 
+decay 1.6456e-54 
+LDOS 0.297
+STDOS 0.372
+FTDOS 0.331
+VDir TeO2LVec.dat  L  161 321
+VDir TeO2STVec.dat ST 161 321
+VDir TeO2FTVec.dat FT 161 321
+VG TeO2L.dat  L 161 321
+VG TeO2ST.dat ST 161 321
+VG TeO2FT.dat FT 161 321
