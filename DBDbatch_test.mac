@@ -1,0 +1,5 @@
+# generate TeO2 0vBB electrons on center
+/TRPS/generator/select DBD
+/TRPS/generator/Q 2527.01 keV
+
+/run/beamOn 10

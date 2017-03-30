@@ -29,6 +29,13 @@ PrimaryGeneratorMessenger::PrimaryGeneratorMessenger(PrimaryGeneratorAction* gen
   fSelectCmd->SetGuidance("GPS: Geant 4 SPS Generator.");
   fSelectCmd->SetGuidance("Hurley");
 
+  // QvalueCmd
+  QvalueCmd = new G4UIcmdWithADoubleAndUnit("/TRPS/generator/Q",this);
+  QvalueCmd->SetGuidance("Set Q Value for 0vBB candidate isotope");
+  QvalueCmd->SetParameterName("Qvalue",true,true);
+  QvalueCmd->SetDefaultUnit("MeV");
+  QvalueCmd->SetUnitCandidates("eV keV MeV GeV TeV");
+
   // For each new generator, make sure to add string as new candidate
   G4String candidates = "DBD GPS Hurley";
   fSelectCmd->SetCandidates(candidates);
@@ -40,6 +47,7 @@ PrimaryGeneratorMessenger::~PrimaryGeneratorMessenger()
 {
   delete genDir;
   delete fSelectCmd;
+  delete QvalueCmd;
 }
 
 
@@ -49,7 +57,8 @@ void PrimaryGeneratorMessenger::SetNewValue(G4UIcommand* command,G4String newVal
    {
       // For a new generator, add in command here
       if(newValue == "DBD"){
-        fPrimaryGenerator->SetGenerator(new DBDPrimaryGenerator);
+	DBDgen = new DBDPrimaryGenerator();
+        fPrimaryGenerator->SetGenerator(DBDgen);
       }
       else if(newValue == "GPS")
       {
@@ -61,5 +70,9 @@ void PrimaryGeneratorMessenger::SetNewValue(G4UIcommand* command,G4String newVal
       }
    }
 
+  if( command == QvalueCmd )
+   {
+	DBDgen->SetQValue(QvalueCmd->GetNewDoubleValue(newValue));
+   }
 }
 

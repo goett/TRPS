@@ -16,9 +16,11 @@ public:
 
   public:
     virtual void GeneratePrimaryVertex(G4Event*);
+    virtual void SetQValue(double);
 
   private:
     G4ParticleGun*                fParticleGun;
+    double                	  fQvalue;
 
 };
 
