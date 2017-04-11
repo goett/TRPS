@@ -60,7 +60,7 @@ tarGet_link_libraries(TRPSBox ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} ${Boost_LIBR
 # relies on these scripts being in the current working directory.
 #
 set(TRPS_SCRIPTS
-    GPSbatch_BulkTeDBD.mac GPSbatch_Bulke.mac GPSbatch_SurfAlpha.mac GPSbatch_AlphaOnCenter.mac GPSbatch_BulkAlpha.mac
+    DBDbatch_test.mac GPSbatch_BulkTeDBD.mac GPSbatch_Bulke.mac GPSbatch_SurfAlpha.mac GPSbatch_AlphaOnCenter.mac GPSbatch_BulkAlpha.mac
   )
 
 set(TRPS_DATA
