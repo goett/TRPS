@@ -88,6 +88,7 @@ void TeO2DetectorConstruction::SetupGeometry()
   G4VSolid* fXTALSolid = new G4Box("fXTALSolid",(25.0/2.0)*mm,(25.0/2.0)*mm,(25.0/2.0)*mm);
   //G4VSolid* fXTALSolid = new G4Box("fXTALSolid",(11.2/2.0)*mm,(1.45/2.0)*mm,(7.90/2.0)*mm);
   G4LogicalVolume* fXTALLogical = new G4LogicalVolume(fXTALSolid,fTeO2,"fXTALLogical");
+  //fXTALLogical->SetUserLimits(new G4UserLimits(10*mm, DBL_MAX, DBL_MAX, 0, 0));
   G4VPhysicalVolume* XTALPhys = new G4PVPlacement(0,G4ThreeVector(),fXTALLogical,"fXTALPhysical",worldLogical,false,0);
 
   //Germanium lattice information

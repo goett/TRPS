@@ -43,6 +43,7 @@ G4VParticleChange* PhononExcitation::PostStepDoIt( const G4Track& aTrack,
   // quick fix to stop process in materials without lattice
   // should find a way to turn processes on/off by material
   else{
+	aParticleChange.SetNumberOfSecondaries(0);
 	return &aParticleChange;
   }
   

@@ -31,6 +31,7 @@ void DBDPrimaryGenerator::GeneratePrimaryVertex(G4Event* anEvent)
 
   fParticleGun->SetParticleTime(0.0*ns);
   G4ThreeVector a = G4RandomDirection();
+  //G4ThreeVector a = G4ThreeVector(-1.0,0.0,0.0);
   particle = particleTable->FindParticle("e-");
   fParticleGun->SetParticleDefinition(particle);
   
@@ -44,7 +45,10 @@ void DBDPrimaryGenerator::GeneratePrimaryVertex(G4Event* anEvent)
   fParticleGun->SetParticleEnergy(fQvalue/2.0);
   //G4double angle = (G4UniformRand()-0.5)*sigmaAngle;
   fParticleGun->SetParticleMomentumDirection(a);
-  fParticleGun->SetParticlePosition(G4ThreeVector(G4UniformRand()*12.4*mm,G4UniformRand()*12.4*mm,G4UniformRand()*12.4*mm));
+  G4ThreeVector vertexpos = G4ThreeVector(G4UniformRand()*12.5*mm,G4UniformRand()*12.5*mm,G4UniformRand()*12.5*mm);
+  //G4ThreeVector vertexpos = G4ThreeVector(12.5*mm,12.5*mm,12.5*mm);
+  G4cout << "Vertex position: " << vertexpos.getX() << "\t" << vertexpos.getY() << "\t" << vertexpos.getZ() << G4endl;
+  fParticleGun->SetParticlePosition(vertexpos);
   fParticleGun->GeneratePrimaryVertex(anEvent);
   fParticleGun->SetParticleMomentumDirection(-1.0*a); //back to back with first primary
   fParticleGun->GeneratePrimaryVertex(anEvent);
