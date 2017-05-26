@@ -101,8 +101,7 @@ void TeO2DetectorConstruction::SetupGeometry()
   G4RotationMatrix* lRot = new G4RotationMatrix();
   //rotate about Z axis to get 
   lRot->rotateZ(1.0*pi/4.0*rad);
-  G4LatticePhysical* TeO2Physical =
-    new G4LatticePhysical(TeO2Logical, lRot);
+  G4LatticePhysical* TeO2Physical = new G4LatticePhysical(TeO2Logical, lRot);
   LM->RegisterLattice(XTALPhys, TeO2Physical);
 
   //Test lattice rotation:
@@ -110,10 +109,10 @@ void TeO2DetectorConstruction::SetupGeometry()
   G4ThreeVector B(0.0,1.0,0.0);
   G4ThreeVector C(0.0,0.0,1.0);
   G4ThreeVector D(1.0,1.0,0.0);
-  G4cout << "Global direction <1,0,0> is now:" << TeO2Physical->RotateToLocal(A) << G4endl;
-  G4cout << "Global direction <0,1,0> is now:" << TeO2Physical->RotateToLocal(B) << G4endl;
-  G4cout << "Global direction <0,0,1> is now:" << TeO2Physical->RotateToLocal(C) << G4endl;
-  G4cout << "Global direction <1,1,0> is now:" << TeO2Physical->RotateToLocal(D.unit()) << G4endl;
+  G4cout << "Global direction <1,0,0> is :" << TeO2Physical->RotateToLocal(A) << " in the lattice frame." << G4endl;
+  G4cout << "Global direction <0,1,0> is :" << TeO2Physical->RotateToLocal(B) << " in the lattice frame." << G4endl;
+  G4cout << "Global direction <0,0,1> is :" << TeO2Physical->RotateToLocal(C) << " in the lattice frame." << G4endl;
+  G4cout << "Global direction <1,1,0> is :" << TeO2Physical->RotateToLocal(D.unit()) << " in the lattice frame." << G4endl;
 
   // detector -- Note : Aluminum electrode sensitivity is attached to crystal because phonons don't step into the Al. 
   G4SDManager* SDman = G4SDManager::GetSDMpointer();

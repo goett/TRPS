@@ -79,7 +79,7 @@ G4VParticleChange* PhononExcitation::PostStepDoIt( const G4Track& aTrack,
 	//Uncomment following lines to create an isotropic distribution: tests show this produces consistent results as reciprocal analysis with less overhead)
 	G4ThreeVector dir = G4RandomDirection();
   	//Set polarization based on density of states
-  	G4int pol = ChoosePolarization(theLattice->GetLDOS(),theLattice->GetSTDOS(),theLattice->GetFTDOS()); 
+  	G4int pol = ChoosePolarization(dir); 
   	G4Track* sec = CreateSecondary(pol,dir.unit(),pE);
   	aParticleChange.AddSecondary(sec);
   }
@@ -87,17 +87,20 @@ G4VParticleChange* PhononExcitation::PostStepDoIt( const G4Track& aTrack,
   return &aParticleChange;
 }
 
-G4int PhononExcitation::ChoosePolarization(G4double Ldos, G4double STdos,
-							   G4double FTdos) const {
-	G4double norm = Ldos + STdos + FTdos;
-	G4double STprob = STdos/norm;
-	G4double FTprob = FTdos/norm + STprob;
+G4int PhononExcitation::ChoosePolarization(G4ThreeVector v) {
+	//density of states is calculated from velocity distribution for momentum space vector
+ 	G4double Lvg = theLattice->MapKtoV(G4PhononPolarization::Long, v);	
+ 	G4double STvg = theLattice->MapKtoV(G4PhononPolarization::TransSlow, v);	
+ 	G4double FTvg = theLattice->MapKtoV(G4PhononPolarization::TransFast, v);	
+	G4double norm = (1.0/Lvg) + (1.0/STvg) + (1.0/FTvg);
 	
-	// 
+	G4double STprob = (1.0/STvg)/norm;
+	G4double FTprob = (1.0/FTvg)/norm + STprob;
+	
 	G4double randpol = G4UniformRand();
 	if (randpol<STprob) return G4PhononPolarization::TransSlow;
-	if (randpol<FTprob) return G4PhononPolarization::TransFast;
-	return G4PhononPolarization::Long;
+	else if (randpol<FTprob) return G4PhononPolarization::TransFast;
+	else return G4PhononPolarization::Long;
 }
 
 G4Track* PhononExcitation::CreateSecondary(G4int polarization,

@@ -38,8 +38,8 @@ protected:
   virtual G4double GetMeanFreePath(const G4Track&, G4double, G4ForceCondition*);
 
 protected:
-  //generate random polarization from density of states
-  virtual G4int ChoosePolarization(G4double Ldos, G4double STdos, G4double FTdos) const;
+  //generate random polarization from density of states in momentum direction v
+  virtual G4int ChoosePolarization(G4ThreeVector v);
   //introduce a new phonon with momentum position etc...
   virtual G4Track* CreateSecondary(G4int polarization, const G4ThreeVector &K, G4double energy) const;
 
